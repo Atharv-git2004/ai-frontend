@@ -331,7 +331,10 @@ export default function VoiceAssistant() {
         emotion: "warm",
       });
 
-      const res = await fetch("http://localhost:5000/api/chat", {
+      const API_URL =
+        window.location.hostname === "localhost" ? "http://localhost:5000" : "https://ai-backend-1-m5n7.onrender.com";
+
+      const res = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userText.trim() }),
