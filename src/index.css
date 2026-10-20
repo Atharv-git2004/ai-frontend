@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #080b12 !important;
+  color: #f8fafc !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #080b12 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background ambient glows */
+.ambient-glow-1 {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, rgba(147, 51, 234, 0.12) 50%, transparent 75%);
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-glow-2 {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(99, 102, 241, 0.1) 50%, transparent 75%);
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Pulse Keyframes */
+@keyframes listeningPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7), 0 0 35px rgba(239, 68, 68, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 26px rgba(239, 68, 68, 0), 0 0 50px rgba(239, 68, 68, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0), 0 0 30px rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes speakingPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7), 0 0 35px rgba(168, 85, 247, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 26px rgba(168, 85, 247, 0), 0 0 50px rgba(168, 85, 247, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0), 0 0 30px rgba(168, 85, 247, 0);
+  }
+}
+
+/* Sound Wave bars inside Mic button */
+.sound-bar {
+  width: 3.5px;
+  background: #ffffff;
+  border-radius: 4px;
+  animation: barEqualize 0.8s infinite ease-in-out;
+}
+.sound-bar:nth-child(1) { height: 12px; animation-delay: 0.1s; }
+.sound-bar:nth-child(2) { height: 22px; animation-delay: 0.25s; }
+.sound-bar:nth-child(3) { height: 16px; animation-delay: 0.4s; }
+.sound-bar:nth-child(4) { height: 24px; animation-delay: 0.15s; }
+.sound-bar:nth-child(5) { height: 10px; animation-delay: 0.35s; }
+
+@keyframes barEqualize {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1.3); }
+}
+
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
+.spin-anim {
+  animation: spinLoader 1s linear infinite;
+}
