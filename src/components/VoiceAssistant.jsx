@@ -332,7 +332,7 @@ export default function VoiceAssistant() {
       });
 
       const API_URL =
-        window.location.hostname === "localhost" ? "http://localhost:5000" : "https://ai-backend-1-m5n7.onrender.com";
+        window.location.hostname === "localhost" ? "http://localhost:5000" : "https://backend-ai-eicx.onrender.com";
 
       const res = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
